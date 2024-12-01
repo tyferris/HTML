@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="HTML, CSS" />
+    <title>HTML/CSS Workshop</title>
+
+    <style>
+      .corner-img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 150px;
+        border-radius: 75px;
+        margin: 10px;
+      }
+
+      table {
+        width: 50%;
+        background-color:black;
+        font-family: 'Times New Roman', Times, serif;
+        border-collapse: collapse;
+
+      }
+      th, td {
+        text-align: left;
+        padding: 5px;
+        border: 2px solid green;
+      }
+      th {
+        color: white;
+        border-bottom: 4px solid green;
+      }
+      td {
+        color: limegreen
+      }
+
+      footer {
+        background-color: yellow;
+        color: black;
+        text-align: center;
+        padding: 10px;
+        position: relative;
+      }
+      footer a {
+        text-decoration: none;
+      }
+      .in-text-img {
+        position: absolute;
+        width: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Smiley's Workshop</h1>
+
+    <img src="assets/SmileyPlayerOG.jpg" alt="Smiley" class="corner-img" />
+
+    <p>
+      Learning <em>HTML</em> and <em>CSS</em> in progress, click
+      <a href="#section-javascript">here</a> for Javascript
+    </p>
+    <h2>HTML</h2>
+    <p>HTML is the layout of the webpage.</p>
+    <h3>Code</h3>
+    <ul>
+      <li>
+        Entities are characters that are normally only visible in code, but can
+        be made literal with a certain&nbsp;setup. &lt; &copy; &gt;
+      </li>
+      <br />
+      <li>Links are used like so, images and text work in slot.</li>
+      <a href="index.html">Link to Smiley's Site here</a>
+      <br /><br />
+      <li>
+        Download image files through links by adding the
+        <em>download</em> attribute, like
+        <a href="assets/SmileyPlayerOG.jpg" download>this.</a>
+      </li>
+      <br />
+      <li>
+        Links can also work to get to external websites/pages, like
+        <a href="https://google.com">Google</a>. To do this in a different tab,
+        we have to add a target attribute and set it to "blank", like
+        <a href="https://google.com" target="_blank">this.</a>
+      </li>
+      <br />
+      <li>
+        If you want someone to be able to contact you, add an email link that
+        puts them in their email account with your email already in the address
+        bar. <a href="mailto:tylerferris862@gmail.com">Email me here.</a>
+      </li>
+      <p>...</p>
+    </ul>
+
+    <h3>Exercise</h3>
+    <ul>
+      <li>Imbed a Youtube video.</li>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=XX6JSW7qfB4DjXYd"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+      <li>Make a table.</li>
+      <table>
+        <caption>Do I Work Today?</caption>
+        <tr>
+          <th>Day</th>
+          <th>Shift</th>
+          <th>Position</th>
+        </tr>
+        <tr>
+          <td>Monday</td>
+          <td>Night Shift</td>
+          <td>Dishes</td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td>Night Shift</td>
+          <td>Salad</td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td>Morning Shift</td>
+          <td>Flex</td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td>Thanksgiving</td>
+          <td>OFF</td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>Double</td>
+          <td>Salad/Dishes</td>
+        </tr>
+        <tr>
+          <td>Saturday</td>
+          <td>Morning</td>
+          <td>Pizza</td>
+        </tr>
+        <tr>
+          <td>Sunday</td>
+          <td>Rest Day</td>
+          <td>OFF</td>
+        </tr>
+      </table>
+      
+    </ul>
+
+    <p>...</p>
+    <h2>CSS</h2>
+    <p>CSS is the style of the webpage and its contents. This covers location, size, color, and some structure of the things on the page.</p>
+    <h2 id="section-javascript">Javascript</h2>
+    <p>
+      Javascript is the functionality of the webpage, like the backend part of
+      the frontend. We will learn about this after HTML and CSS.
+    </p>
+
+    <a href="#">Jump to top</a>
+  </body>
+
+  <footer>
+    <p>&copy; 2024 Smiley-tronics zero rights reserved.</p>
+    <p>Follow me on xbox, I don't like social media.</p>
+    <p><img src="assets/xbox-logo-black.png" alt="Xbox" class="in-text-img"/> &nbsp;&nbsp;&nbsp;&nbsp;SmilingSadness</p>
+  </footer>
+</html>

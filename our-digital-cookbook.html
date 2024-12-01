@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Digital Cookbook</title>
+</head>
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+    header {    /* the top part of the webpage */
+        color: black;
+        padding: 10px;
+        text-align: center;
+        font-size: 1.5em;
+    }
+    nav {
+        margin-top: 10px;
+    }
+    nav a {   /* the links to scroll to categories with */
+        margin-top: 10px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-inline: 15px;
+        color: blue;
+    }
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    h2 {
+        margin-left: 30px;
+    }
+
+    .folder {
+        border: 2px solid black;
+        margin: 10px 300px 10px 10px;
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+    .folder label {
+        display: block;
+        background-color: cyan;
+        padding: 10px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .folder .folder-image {
+        display: none;
+        position: absolute;
+        right: -200px;
+        width: 200px;
+        height: 200px;
+        border: 5px solid black;
+        border-radius: 20px;
+    }
+    .folder label:hover {
+        background-color: blue;
+    }
+    .folder input[type="checkbox"] {
+        display: none;
+    }
+    .folder .content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        padding: 0 10px;
+    }
+    .folder input[type="checkbox"]:checked ~ .content {
+        max-height: 99px;
+    }
+    .folder .content p {
+        margin: 5px 0;
+    }
+
+    .image-container {
+        position: absolute;
+        right: 100px;
+        width: 200px;
+        visibility: hidden;
+    }
+    .folder label:hover + .image-container .folder-image {
+        visibility: visible;
+    }
+
+</style>
+<body>
+    <header>
+        <h1>All of Our Cooking Lore!</h1>
+        <nav>
+            <a href="#section-winter">Winter</a>
+            <a href="#section-mama">Mama</a>
+            <a href="#section-smiley">Smiley</a>
+            <a href="#section-more...">more...</a>
+        </nav>
+    </header>
+
+    <h2 id="section-winter">Winter's Kitchen!</h2>
+
+    <div class="folder">
+        <input type="checkbox" id="Winter1">
+        <label for="Winter1">Recipe 1</label>
+        <div class="content">
+            <p>Example Text</p>
+        </div>
+        <div class="image-container">
+            <img src="assets/WinterPlayerOG.png" alt="Winter" class="folder-image">
+        </div>
+    </div>
+
+    <div class="folder">
+        <input type="checkbox" id="Winter2">
+        <label for="Winter2">Recipe 2</label>
+        <div class="content">
+            <p>Example Text</p>
+        </div>
+    </div>
+
+    <h2 id="section-mama">Mama's Collection!</h2>
+    
+    <div class="folder">
+        <input type="checkbox" id="Mama1">
+        <label for="Mama1">Recipe 1</label>
+        <div class="content">
+            <p>Example Text</p>
+        </div>
+    </div>
+
+    <h2 id="section-smiley">Smiley's Selection!</h2>
+
+    <div class="folder">
+        <input type="checkbox" id="Smiley1">
+        <label for="Smiley1">Recipe 1</label>
+        <div class="content">
+            <p>Example Text</p>
+        </div>
+    </div>
+
+</body>
+</html>
