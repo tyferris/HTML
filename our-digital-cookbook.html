@@ -47,15 +47,6 @@
         cursor: pointer;
         font-weight: bold;
     }
-    .folder .folder-image {
-        display: none;
-        position: absolute;
-        right: -200px;
-        width: 200px;
-        height: 200px;
-        border: 5px solid black;
-        border-radius: 20px;
-    }
     .folder label:hover {
         background-color: blue;
     }
@@ -73,16 +64,6 @@
     }
     .folder .content p {
         margin: 5px 0;
-    }
-
-    .image-container {
-        position: absolute;
-        right: 100px;
-        width: 200px;
-        visibility: hidden;
-    }
-    .folder label:hover + .image-container .folder-image {
-        visibility: visible;
     }
 
 </style>
@@ -105,10 +86,9 @@
         <div class="content">
             <p>Example Text</p>
         </div>
-        <div class="image-container">
-            <img src="assets/WinterPlayerOG.png" alt="Winter" class="folder-image">
-        </div>
     </div>
+
+    
 
     <div class="folder">
         <input type="checkbox" id="Winter2">

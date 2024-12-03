@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tyler Ferris' Portfolio</title>
+
+    <style>
+        body {
+            background-color: rgb(20, 20, 20);
+            color: white;
+        }
+        .placeholder-image {
+            width: 400px;
+            height: 100vh;
+            margin-right: 100px;
+            object-fit: cover;
+            margin-left: 75px;
+        }
+        main {
+            margin-left: 225px;
+            height: 100vh;
+        }
+        .box {
+            position: absolute;
+            top: 50%;
+            transform: translate(100%, -100%);
+            vertical-align: middle;
+        }
+        #header-side {
+            width: 200px;
+            background-color: rgb(90, 90, 90);
+            color: black;
+            text-align: center;
+            display: flex;
+            padding: 10px;
+            flex-direction: column;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        nav {
+            line-height: 10px;
+        }
+        nav a {   /* the links to scroll to categories with */
+            line-height: 40px;
+            text-decoration: none;
+            font-size: 1.25em;
+            margin-inline: 15px;
+            color: white;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .profile-image {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            margin-inline: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-side">
+        <nav>
+            <img src="assets/TylerPfp.jpg" alt="Tyler Ferris" class="profile-image">
+            <h1>Tyler Ferris</h1>
+            <p><i>Web developer in Mississippi</i></p>
+            <a href="about.html">About</a><br>
+            <a href="portfolio.html">Skills</a><br>
+            <a href="contact.html">Education</a><br>
+            <a href="contact.html">Contact</a><br>
+        </nav>
+    </div id="header-side">
+    <main>
+        <img src="assets/placeholder-image.jpg" alt="Placeholder" class="placeholder-image">
+        <div class="box">
+            <h1>I am Tyler Ferris</h1>
+            <p>I'm Tyler, a budding web developer with a passion for coding and drive for success!</p>
+        </div>
+    </main>
+</body>
+</html>
