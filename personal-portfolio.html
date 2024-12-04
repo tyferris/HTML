@@ -19,7 +19,6 @@
         }
         main {
             margin-left: 225px;
-            height: 100vh;
         }
         .box {
             position: absolute;
@@ -62,7 +61,57 @@
             margin-inline: auto;
             margin-bottom: 10px;
         }
+        .logo-image {
+            width: 40px;
+            height: 30px;
+            border-radius: 50%;
+            border-color: solid white;
+            border: 2px solid white;
+        }
+        .contact-box {
+            position: absolute;
+            top: 50%;
+            transform: translate(250%, 100%);
+            vertical-align: middle;
+            text-align: center;
+            font-size: 1.25em;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
     </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+
+            // Function to show a specific section
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === sectionId) {
+                        section.classList.add('active');
+                    }
+                });
+            }
+
+            // Add event listeners to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent default anchor behavior
+                    const sectionId = link.getAttribute('data-section');
+                    showSection(sectionId);
+                });
+            });
+
+            // Set the default visible section
+            showSection('home');
+        });
+    </script>
 </head>
 <body>
     <div id="header-side">
@@ -70,17 +119,54 @@
             <img src="assets/TylerPfp.jpg" alt="Tyler Ferris" class="profile-image">
             <h1>Tyler Ferris</h1>
             <p><i>Web developer in Mississippi</i></p>
-            <a href="about.html">About</a><br>
-            <a href="portfolio.html">Skills</a><br>
-            <a href="contact.html">Education</a><br>
-            <a href="contact.html">Contact</a><br>
+            <a href="#home" class="nav-link" data-section="home">Home</a><br>
+            <a href="#about" class="nav-link" data-section="about">About</a><br>
+            <a href="#skills" class="nav-link" data-section="skills">Skills</a><br>
+            <a href="#education" class="nav-link" data-section="education">Education</a><br>
+            <a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a><br>
         </nav>
-    </div id="header-side">
+    </div>
+
     <main>
-        <img src="assets/placeholder-image.jpg" alt="Placeholder" class="placeholder-image">
-        <div class="box">
-            <h1>I am Tyler Ferris</h1>
-            <p>I'm Tyler, a budding web developer with a passion for coding and drive for success!</p>
+        <!-- Home Section -->
+        <div id="home" class="content-section active">
+            <img src="assets/placeholder-image.jpg" alt="Placeholder" class="placeholder-image">
+            <div class="box">
+                <h1>I am Tyler Ferris</h1>
+                <p>I'm Tyler, a budding web developer with a passion for coding and drive for success!</p>
+            </div>
+            <div class="contact-box">
+                <nav>
+                    <p>Contact me here:</p>
+                    <a href="mailto:tylerferris862@gmail.com"><img src="assets/logos/gmail-Logo.png" alt="gmail" class="logo-image"></a>
+                    <a href="https://www.linkedin.com/in/tyler-ferris-smiley/"><img src="assets/logos/linkedin-logo.png" alt="linkedin" class="logo-image"></a>
+                    <a href="https://profile.indeed.com/?hl=en_US&co=US&from=gnav-menu-app-tracker"><img src="assets/logos/indeed-Logo.png" alt="Indeed" class="logo-image"></a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="content-section">
+            <h2>About Me</h2>
+            <p>I am a web developer in Mississippi with a passion for coding and a drive for success.</p>
+        </div>
+
+        <!-- Skills Section -->
+        <div id="skills" class="content-section">
+            <h2>Skills</h2>
+            <p>JavaScript, HTML, CSS, React, and more.</p>
+        </div>
+
+        <!-- Education Section -->
+        <div id="education" class="content-section">
+            <h2>Education</h2>
+            <p>Bachelor's degree in Computer Science.</p>
+        </div>
+
+        <!-- Portfolio Section -->
+        <div id="portfolio" class="content-section">
+            <h2>Portfolio</h2>
+            <p>Some of my best work is showcased here.</p>
         </div>
     </main>
 </body>
