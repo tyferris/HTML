@@ -1,87 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tyler Ferris' Portfolio</title>
 
     <style>
-        body {
-            background-color: rgb(20, 20, 20);
-            color: white;
-        }
-        .placeholder-image {
-            width: 400px;
-            height: 100vh;
-            margin-right: 100px;
-            object-fit: cover;
-            margin-left: 75px;
-        }
-        main {
-            margin-left: 225px;
-            height: 100vh;
-        }
-        .box {
-            position: absolute;
-            top: 50%;
-            transform: translate(100%, -100%);
-            vertical-align: middle;
-        }
-        #header-side {
-            width: 200px;
-            background-color: rgb(90, 90, 90);
-            color: black;
-            text-align: center;
-            display: flex;
-            padding: 10px;
-            flex-direction: column;
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            justify-content: center;
-            align-items: center;
-        }
-        nav {
-            line-height: 10px;
-        }
-        nav a {   /* the links to scroll to categories with */
-            line-height: 40px;
-            text-decoration: none;
-            font-size: 1.25em;
-            margin-inline: 15px;
-            color: white;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .profile-image {
-            width: 125px;
-            height: 125px;
-            border-radius: 50%;
-            margin-inline: auto;
-            margin-bottom: 10px;
-        }
+      body {
+        background-color: rgb(20, 20, 20);
+        color: white;
+      }
+      .placeholder-image {
+        width: 400px;
+        height: 100vh;
+        margin-right: 100px;
+        object-fit: cover;
+        margin-left: 75px;
+      }
+      main {
+        margin-left: 225px;
+      }
+      .box {
+        position: absolute;
+        top: 50%;
+        transform: translate(125%, -100%);
+        vertical-align: middle;
+      }
+      .about-box {
+        position: absolute;
+        font-size: 1em;
+        margin-left: 10px;
+        margin-right: 20%;
+      }
+      .about-box-img {
+        width: 20%;
+        height: 40%;
+        position: absolute;
+        top: 60%;
+        left: 80%;
+      }
+      .edu-years-box {
+        position: absolute;
+        width: 20%;
+        font-size: 3.5em;
+        color: white;
+        text-decoration: underline;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+        height: 94%;
+        padding: 10px;
+        object-fit: cover;
+        line-height: .7;
+      }
+      .highschool-box {
+        position: absolute;
+        width: 50%;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+        border: 1px solid white;
+        border-radius: 10px;
+        height: 28%;
+        padding: 10px;
+        margin-left: 25%;
+      }
+      .community-box {
+        position: absolute;
+        text-align: center;
+        width: 50%;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+        border: 1px solid white;
+        border-radius: 10px;
+        height: 28%;
+        padding: 10px;
+        margin-left: 25%;
+        top: 34%;
+      }
+      .college-box {
+        position: absolute;
+        width: 50%;
+        color: white;
+        font-size: .9em;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        display: flex;
+        border: 1px solid white;
+        border-radius: 10px;
+        height: 28%;
+        padding: 10px;
+        margin-left: 25%;
+        top: 67%;
+      }
+      #header-side {
+        width: 200px;
+        background-color: rgb(90, 90, 90);
+        color: black;
+        text-align: center;
+        display: flex;
+        padding: 10px;
+        border: 2px solid white;
+        flex-direction: column;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;  /* Ensures the nav is on top of other content */
+      }
+      .header-portfolio {
+        width: 100%;
+        height: 100px;
+        top: 0;
+        left: 210px;
+        background-color: rgb(90, 90, 90);
+        color: black;
+        display: block;
+        position: fixed;
+        padding: 15px;
+        border: 2px solid white;
+        z-index: 999;
+      }
+      nav {
+        line-height: 10px;
+      }
+      nav a {
+        /* the links to scroll to categories with */
+        line-height: 40px;
+        text-decoration: none;
+        font-size: 1.25em;
+        margin-inline: 15px;
+        color: white;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .profile-image {
+        width: 125px;
+        height: 125px;
+        border-radius: 50%;
+        margin-inline: auto;
+        margin-bottom: 10px;
+      }
+      .logo-image {
+        width: 40px;
+        height: 30px;
+        border-radius: 50%;
+        border-color: solid white;
+        border: 2px solid white;
+      }
+      .contact-box {
+        position: absolute;
+        top: 50%;
+        transform: translate(250%, 100%);
+        vertical-align: middle;
+        text-align: center;
+        font-size: 1.25em;
+      }
+      .content-section {
+        display: none;
+      }
+      .content-section.active {
+        display: block;
+      }
+      main h1 {
+        font-size: 3em;
+      }
+      main p {
+        font-size: 1.25em;
+      }
+      .about-box h2 {
+        font-size: 2.5em;
+        margin-left: 38%;
+      }
+      .about-box h4 {
+        font-size: 1.5em;
+        font-weight: normal;
+        text-align: center;
+      }
+      .header-portfolio h1 {
+        font-size: 4em;
+        margin-left: 5%;
+        margin-top: 20px;
+      }
     </style>
-</head>
-<body>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll(".nav-link");
+        const sections = document.querySelectorAll(".content-section");
+
+        // Function to show a specific section
+        function showSection(sectionId) {
+          sections.forEach((section) => {
+            section.classList.remove("active");
+            if (section.id === sectionId) {
+              section.classList.add("active");
+            }
+          });
+        }
+
+        // Add event listeners to navigation links
+        navLinks.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent default anchor behavior
+            const sectionId = link.getAttribute("data-section");
+            showSection(sectionId);
+          });
+        });
+
+        // Set the default visible section
+        showSection("home");
+      });
+    </script>
+  </head>
+  <body>
     <div id="header-side">
-        <nav>
-            <img src="assets/TylerPfp.jpg" alt="Tyler Ferris" class="profile-image">
-            <h1>Tyler Ferris</h1>
-            <p><i>Web developer in Mississippi</i></p>
-            <a href="about.html">About</a><br>
-            <a href="portfolio.html">Skills</a><br>
-            <a href="contact.html">Education</a><br>
-            <a href="contact.html">Contact</a><br>
-        </nav>
-    </div id="header-side">
+      <nav>
+        <img
+          src="assets/TylerPfP.jpg"
+          alt="Tyler Ferris"
+          class="profile-image"
+        />
+        <h1>Tyler Ferris</h1>
+        <p><i>Web developer in Mississippi</i></p>
+        <a href="#home" class="nav-link" data-section="home">Home</a><br />
+        <a href="#about" class="nav-link" data-section="about">About</a><br />
+        <a href="#education" class="nav-link" data-section="education">Education</a><br />
+        <a href="#portfolio" class="nav-link" data-section="portfolio">Portfolio</a><br />
+      </nav>
+    </div>
+
     <main>
-        <img src="assets/placeholder-image.jpg" alt="Placeholder" class="placeholder-image">
+      <!-- Home Section -->
+      <div id="home" class="content-section active">
+        <img
+          src="assets/placeholder-image.jpg"
+          alt="Placeholder"
+          class="placeholder-image"
+        />
         <div class="box">
-            <h1>I am Tyler Ferris</h1>
-            <p>I'm Tyler, a budding web developer with a passion for coding and drive for success!</p>
+          <h1>I am Tyler Ferris</h1>
+          <p>
+            I'm Tyler, a budding web developer with a passion <br />for coding
+            and drive for success!
+          </p>
         </div>
+        <div class="contact-box">
+          <nav>
+            <p>Contact me here:</p>
+            <a href="mailto:tylerferris862@gmail.com"
+              ><img
+                src="assets/logos/gmail-Logo.png"
+                alt="gmail"
+                class="logo-image"
+            /></a>
+            <a href="https://www.linkedin.com/in/tyler-ferris-smiley/"
+              ><img
+                src="assets/logos/linkedin-logo.png"
+                alt="linkedin"
+                class="logo-image"
+            /></a>
+            <a
+              href="https://profile.indeed.com/?hl=en_US&co=US&from=gnav-menu-app-tracker"
+              ><img
+                src="assets/logos/indeed-Logo.png"
+                alt="Indeed"
+                class="logo-image"
+            /></a>
+          </nav>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div id="about" class="content-section">
+        <img
+          src="assets/SmileyPLayerOG.jpg"
+          alt="headshot"
+          class="about-box-img"
+        />
+        <div class="about-box">
+          <h2>Hi, I'm Tyler.</h2>
+          <h4>an aspiring frontend developer based in Mississippi</h4>
+          <p>
+            Ever since graduating with my computer science bachelors in 2024, I
+            have wanted to code anything from video games and mobile
+            applications to websites and online storefronts. Being split between
+            my love for video games as a child and my expierence with web design
+            in school, I started working in the middle of both sides, frontend
+            development.
+          </p>
+        </div>
+      </div>
+
+      <!-- Education Section -->
+      <div id="education" class="content-section">
+        <div class="edu-years-box">
+          <h2>2020</h2>
+          <h2>2022</h2>
+          <h2>2024</h2>
+        </div>
+        <div class="highschool-box">
+          <p>I graduated from Galesburg High School in Galesburg Illinois in June 
+            of 2020 with a GPA of 3.4, right at the start of the big COVID 19 pandemic. The ceremony 
+            wasn't much with all of the quarantine restrictions, but we at least 
+            got an indoor ceremony!
+        </p>
+      </div>
+        <div class="community-box">
+            <p>I graduated with an associates degree in arts from Carl Sandburg 
+                College, also in Galesburg, in May of 2022 with a GPA of 3.1. I was able to get most 
+                all of my pre recs and general education done here so I could focus 
+                more on my computer science degree at Knox later on.
+            </p>
+        </div>
+        <div class="college-box">
+            <p>I earned my bachelors of arts degree in computer science at Knox College, 
+                aso in Galesburg, in June of 2024 with a GPA of 3. I would never had gotten 
+                this far without the Gale Scholars foundation. They paid most of my school 
+                expenses and tuition, as well as providing counseling and course help throughout all classes and years.
+            </p>
+        </div>
+        </div>
+      <!-- Portfolio Section -->
+      <div id="portfolio" class="content-section">
+        <div class="header-portfolio">
+          <h1>Portfolio</h1>
+        </div>
+        <h2>Portfolio</h2>
+        <p>Some of my best work is showcased here.</p>
+      </div>
     </main>
-</body>
+  </body>
 </html>
