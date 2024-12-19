@@ -11,7 +11,6 @@
         font-family: 'Roboto', sans-serif; /* Improved font styling */
 }
     .header {    
-    padding: 10px;
     font-size: 1.5em;
     height: 50px;
     width: calc(100% - 40px);
@@ -21,8 +20,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center; /* Vertically align items */
-    gap: 10px;
     color: black;
+    background-color: white;
 }
 
 .header h1 {
@@ -44,12 +43,16 @@ nav a:hover {
 main {
     padding-top: 80px; /* Prevent content overlap */
     border: 2px solid red;
-    position: absolute;
+    position: relative;
     width: calc(100% - 240px);
-    padding: 10px;
     bottom: 0;
     top: 90px;
     left: 210px;
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between grid items */
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .tab-box {
@@ -98,14 +101,20 @@ main {
     position: absolute;
     object-fit: cover;
 }
+.recipie:hover {
+    transform: scale(1.05); /* Slightly enlarges the item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
 .sub-header {
     position: relative;
-    height: 8%;
-    width: 100%;
+    grid-column: 1 / -1; /* Span all columns */
+    height: 25px; /* Fixed height as a percentage of the container */
+    width: 100%; /* Ensure full width */
     border-bottom: 2px solid black;
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
 }
 .sub-header h2 {
     font-size: 2em;
@@ -132,6 +141,42 @@ main {
     <main>
         <div class="sub-header">
             <h2 id="entrees">Entrees</h2>
+        </div>
+        <div class="recipie">
+            <div class="recipie-pic">
+                <img src="assets/SmileyPlayerOG.jpg" alt="placeholder">
+            </div>
+            <div class="recipie-desc">
+                <h2>Entrees</h2>
+                <p>Here are some entrees ive been thinking about.</p>
+            </div>
+        </div>
+        <div class="recipie">
+            <div class="recipie-pic">
+                <img src="assets/SmileyPlayerOG.jpg" alt="placeholder">
+            </div>
+            <div class="recipie-desc">
+                <h2>Entrees</h2>
+                <p>Here are some entrees ive been thinking about.</p>
+            </div>
+        </div>
+        <div class="recipie">
+            <div class="recipie-pic">
+                <img src="assets/SmileyPlayerOG.jpg" alt="placeholder">
+            </div>
+            <div class="recipie-desc">
+                <h2>Entrees</h2>
+                <p>Here are some entrees ive been thinking about.</p>
+            </div>
+        </div>
+        <div class="recipie">
+            <div class="recipie-pic">
+                <img src="assets/SmileyPlayerOG.jpg" alt="placeholder">
+            </div>
+            <div class="recipie-desc">
+                <h2>Entrees</h2>
+                <p>Here are some entrees ive been thinking about.</p>
+            </div>
         </div>
         <div class="recipie">
             <div class="recipie-pic">
