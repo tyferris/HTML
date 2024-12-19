@@ -45,7 +45,7 @@ main {
     padding-top: 80px; /* Prevent content overlap */
     border: 2px solid red;
     position: absolute;
-    width: calc(100% - 40px);
+    width: calc(100% - 240px);
     padding: 10px;
     bottom: 0;
     top: 90px;
@@ -54,7 +54,6 @@ main {
 
 .tab-box {
     position: absolute;
-    border: 2px solid black;
     display: flex;
     position: fixed;
     flex-direction: column;
@@ -75,11 +74,12 @@ main {
     width: 200px;
     height: 200px;
     overflow: hidden;
+    border: 2px solid rgb(20, 20, 20);
 }
 .recipie-desc {
     position: absolute;
     bottom: 0;
-    background-color: black;
+    background-color: rgb(20, 20, 20);
     color: white;
     width: 95%;
     padding: 5px;
@@ -99,11 +99,12 @@ main {
 }
 .sub-header {
     position: relative;
-    height: 10%;
+    height: 8%;
     width: 100%;
-    border: 2px solid black;
+    border-bottom: 2px solid black;
     display: flex;
     align-items: center;
+    margin-bottom: 10px;
 }
 .sub-header h2 {
     font-size: 2em;
@@ -129,6 +130,15 @@ main {
     <main>
         <div class="sub-header">
             <h2 id="entrees">Entrees</h2>
+        </div>
+        <div class="recipie">
+            <div class="recipie-pic">
+                <img src="assets/SmileyPlayerOG.jpg" alt="placeholder">
+            </div>
+            <div class="recipie-desc">
+                <h2>Entrees</h2>
+                <p>Here are some entrees ive been thinking about.</p>
+            </div>
         </div>
         <div class="recipie">
             <div class="recipie-pic">
