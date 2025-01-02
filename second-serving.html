@@ -43,7 +43,6 @@ nav a:hover {
 
 main {
     padding-top: 80px; /* Prevent content overlap */
-    border: 2px solid red;
     position: relative;
     width: calc(100% - 240px);
     bottom: 0;
@@ -77,6 +76,8 @@ main {
     position: relative;
     width: 200px;
     height: 200px;
+
+    
     overflow: hidden;
     border: 2px solid rgb(20, 20, 20);
 }
@@ -120,7 +121,43 @@ main {
 .sub-header h2 {
     font-size: 2em;
 }
+.content-section {
+        display: none;
+      }
+      .content-section.active {
+        display: block;
+      }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const navLinks = document.querySelectorAll(".nav-link");
+      const sections = document.querySelectorAll(".content-section");
+
+      // Function to show a specific section
+      function showSection(sectionId) {
+        sections.forEach((section) => {
+          section.classList.remove("active");
+          if (section.id === sectionId) {
+            section.classList.add("active");
+          }
+        });
+      }
+
+      // Add event listeners to navigation links
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault(); // Prevent default anchor behavior
+          const sectionId = link.getAttribute("data-section");
+          showSection(sectionId);
+        });
+      });
+
+      // Set the default visible section
+      showSection("home");
+    });
+  </script>
+
 <body>
     <div class="header">
         <h1>SecondServing.com</h1>
@@ -140,6 +177,7 @@ main {
     </div>
 
     <main>
+
         <div class="sub-header">
             <h2 id="entrees">Entrees</h2>
         </div>
@@ -220,6 +258,7 @@ main {
                 <p>Here are some snacks ive been thinking about.</p>
             </div>
         </div>
+        
     </main>
 </body>
 </html>
