@@ -3,9 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>E-Dice</title>
 </head>
+<style>
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Roboto', sans-serif; /* Improved font styling */
+        }
+        main {
+            position: absolute;
+            width: 98%;
+            top: 80px;
+            border: 2px solid black;
+        }
+        header {    
+            font-size: 1.5em;
+            height: 60px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: blue;
+    }
+        input[type="text"] {
+            width: 90%;
+            padding: 5px;
+        }
+        .text-box-box {
+            display: flex;
+            height: 100%;
+            width: 20%;
+            align-items: center;
+            flex-direction: column;
+            padding: 5px;
+            
+        }
+        .text-label {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 50px;
+            width: 100%;
+        }
+        .dice-box {
+            display: flex;
+            position: absolute;
+            border: 2px solid black;
+            margin-left: calc(20% + 10px);
+            height: 60%;
+            width: calc(60% - 20px);
+            top: 0;
+        }
+        .roll-button {
+            width: 100%;
+            height: 50px;
+            padding: 5px;
+            margin-top: 10px;
+            font-size: 2em;
+            font-weight: bold;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+    </style>
 <body>
-    
-</body>
+    <header>
+        <h1>E-Dice</h1>
+    </header>
+    <main>
+        <div class="text-box-box">
+            <div class="text-label">
+                <label for="single-input">d4:</label>
+                <input type="text" id="single-input" name="name" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="single-input">d6:</label>
+                <input type="text" id="single-input" name="name" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="single-input">d8:</label>
+                <input type="text" id="single-input" name="name" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="single-input">d10:</label>
+                <input type="text" id="single-input" name="name" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="single-input">d12:</label>
+                <input type="text" id="single-input" name="name" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="single-input">d20:</label>
+                <input type="text" id="single-input" name="name" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="single-input">d100:</label>
+                <input type="text" id="single-input" name="name" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="single-input">Coin Flip:</label>
+                <input type="text" id="single-input" name="name" placeholder="# of dice">
+            </div>
+            <button class="roll-button">Roll!</button>
+        </div>
+
+        <div class="dice-box">
+
+        </div>
+    </body>
 </html>
