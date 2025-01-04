@@ -14,7 +14,8 @@
             position: absolute;
             width: 98%;
             top: 80px;
-            border: 2px solid black;
+            height: calc(100vh - 80px);
+            overflow: hidden;
         }
         header {    
             font-size: 1.5em;
@@ -31,29 +32,27 @@
         }
         .text-box-box {
             display: flex;
+            position: absolute;
             height: 100%;
             width: 20%;
             align-items: center;
             flex-direction: column;
             padding: 5px;
-            
+            border: 1px solid black;
+        }
+        .text-box-box p {
+            font-weight: bold;
+            line-height: 0px;
         }
         .text-label {
             display: flex;
             flex-direction: row;
             align-items: center;
+            
             height: 50px;
             width: 100%;
         }
-        .dice-box {
-            display: flex;
-            position: absolute;
-            border: 2px solid black;
-            margin-left: calc(20% + 10px);
-            height: 60%;
-            width: calc(60% - 20px);
-            top: 0;
-        }
+        
         .roll-button {
             width: 100%;
             height: 50px;
@@ -67,7 +66,137 @@
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
+        .roll-button:hover {
+            background-color: darkblue;
+            transform: scale(1.1);
+        }
+        .dice-box {
+            display: flex;
+            position: absolute;
+            border: 2px solid black;
+            margin-left: calc(20% + 11px);
+            height: 60%;
+            width: calc(60% - 35px);
+            top: 0;
+            overflow: hidden;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-content: flex-start;
+            padding: 5px;
+            justify-content: center;
+        }
+        .die {
+            display: flex;
+            width: 60px;
+            height: 60px;
+            border: 1px solid red;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .die-pic {
+            width: 60px;
+            height: 60px;
+            z-index: 1;
+            position: relative;
+            object-fit: cover;
+        }
+        .die p {
+            z-index: 100;
+            position: relative;
+            color: blue;
+            font-weight: bold;
+            font-size: 1.75em;
+        }
+        .results-box {
+            display: flex;
+            position: absolute;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(50% - 10px);
+            width: 20%;
+            padding: 5px;
+           
+            top: 0;
+            right: 0;
+        }
+        .results-box h2 {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: black;
+            text-decoration: underline;
+        }
+        .final-result-box h2 {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: black;
+            text-decoration: underline;
+        }
+        .result {
+            font-size: 1.25em;
+            color: blue;
+            font-weight: bold;
+            border: 1px solid black;
+            width: 75%;
+            text-align: center;
+        }
+        .result p {
+            font-size: 1.5em;
+        }
+        .final-result-box {
+            display: flex;
+            position: absolute;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(50% - 10px);
+            width: 20%;
+            padding: 5px;
+          
+            top: 50%;
+            right: 0;
+        }
 
+        .modifier-box {
+            display: flex;
+            position: absolute;
+            flex-direction: row;
+            border: 1px solid green;
+            height: calc(40% - 30px);
+            width: calc(60% - 35px);
+            padding: 5px;
+            bottom: 0;
+            margin-left: calc(20% + 11px);
+            align-content: flex-start;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+        .mod-button {
+            width: 75px;
+            height: 30px;
+            padding: 5px;
+            margin-top: 10px;
+            
+            font-weight: bold;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .mod-text-label {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            height: 50px;
+            width: calc(33% - 15px);
+            padding: 5px;
+            border: 1px solid black;
+        
+        }
     </style>
 <body>
     <header>
@@ -75,43 +204,105 @@
     </header>
     <main>
         <div class="text-box-box">
+            <p>How Many?</p>
             <div class="text-label">
                 <label for="single-input">d4:</label>
-                <input type="text" id="single-input" name="name" placeholder="# of dice">
+                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="single-input">d6:</label>
-                <input type="text" id="single-input" name="name" placeholder="# of dice">
+                <input type="text" id="single-input" name="# of d6's" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="single-input">d8:</label>
-                <input type="text" id="single-input" name="name" placeholder="# of dice">
+                <input type="text" id="single-input" name="# of d8's" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="single-input">d10:</label>
-                <input type="text" id="single-input" name="name" placeholder="# of dice">
+                <input type="text" id="single-input" name="# of d10's" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="single-input">d12:</label>
-                <input type="text" id="single-input" name="name" placeholder="# of dice">
+                <input type="text" id="single-input" name="# of d12's" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="single-input">d20:</label>
-                <input type="text" id="single-input" name="name" placeholder="# of dice">
+                <input type="text" id="single-input" name="# of d20's" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="single-input">d100:</label>
-                <input type="text" id="single-input" name="name" placeholder="# of dice">
+                <input type="text" id="single-input" name="# of d100's" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="single-input">Coin Flip:</label>
-                <input type="text" id="single-input" name="name" placeholder="# of dice">
+                <input type="text" id="single-input" name="# of coin flips" placeholder="# of dice">
             </div>
             <button class="roll-button">Roll!</button>
         </div>
 
         <div class="dice-box">
-
+            <div class="die">
+                 <p>1/4</p>
+            </div>
+            <div class="die">
+                <p>5/6</p>
+            </div>
+            <div class="die">
+                <p>3/8</p>  
+            </div>
+            <div class="die">
+                <p>7/10</p>
+            </div>
+            <div class="die">
+                <p>8/12</p>
+            </div>
+            <div class="die">
+                <p>20/20</p>
+            </div>
         </div>
+        <div class="results-box">
+            <h2>Raw Total</h2>
+            <div class="result">
+                <p>43</p>
+            </div>
+        </div>
+
+        <div class="final-result-box">
+            <h2>Final Total</h2>
+            <div class="result">
+                <p>43</p>
+            </div>
+        </div>
+
+        <div class="modifier-box">
+            <div class="mod-text-label">
+                <label for="single-input"><button class="mod-button">Attack</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+            </div>
+            <div class="mod-text-label">
+                <label for="single-input">d4:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+            </div>
+            <div class="mod-text-label">
+                <label for="single-input"><button class="mod-button">Attack</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+            </div>
+            <div class="mod-text-label">
+                <label for="single-input"><button class="mod-button">Attack</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+            </div>
+            <div class="mod-text-label">
+                <label for="single-input"><button class="mod-button">Attack</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+            </div>
+            <div class="mod-text-label">
+                <label for="single-input"><button class="mod-button">Attack</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+            </div>
+            <div class="mod-text-label">
+                <label for="single-input"><button class="mod-button">Attack</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+            </div>
+        </main>
     </body>
 </html>
