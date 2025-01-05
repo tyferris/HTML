@@ -27,7 +27,7 @@
             color: blue;
     }
         input[type="text"] {
-            width: 90%;
+            width: 50%;
             padding: 5px;
         }
         .text-box-box {
@@ -58,11 +58,11 @@
             height: 50px;
             padding: 5px;
             margin-top: 10px;
+            border-radius: 10px;
             font-size: 2em;
             font-weight: bold;
             background-color: blue;
             color: white;
-            border: none;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
@@ -174,28 +174,31 @@
             overflow: hidden;
         }
         .mod-button {
-            width: 75px;
-            height: 30px;
+            width: 100%;
+            height: auto;
             padding: 5px;
-            margin-top: 10px;
-            
+            margin-top: 40%;           
             font-weight: bold;
-            background-color: green;
-            color: white;
-            border: none;
+            background-color: white;
+            color: black;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 20%;
+            
         }
         .mod-text-label {
             display: flex;
             flex-direction: row;
             align-items: center;
-            
-            height: 50px;
+            margin-inline: 7px;
+            height: 40px;
             width: calc(33% - 15px);
-            padding: 5px;
             border: 1px solid black;
-        
+            gap: 5px;
+        }
+        .mod-button:hover {
+            background-color: lightskyblue;
+            transform: scale(1.1);
         }
     </style>
 <body>
@@ -276,32 +279,44 @@
 
         <div class="modifier-box">
             <div class="mod-text-label">
-                <label for="single-input"><button class="mod-button">Attack</button>:</label>
-                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+                <label for="single-input"><button class="mod-button">Atk</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="single-input">d4:</label>
-                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+                <label for="single-input"><button class="mod-button">Str</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="single-input"><button class="mod-button">Attack</button>:</label>
-                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+                <label for="single-input"><button class="mod-button">Int</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="single-input"><button class="mod-button">Attack</button>:</label>
-                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+                <label for="single-input"><button class="mod-button">Save</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="single-input"><button class="mod-button">Attack</button>:</label>
-                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+                <label for="single-input"><button class="mod-button">Dex</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="single-input"><button class="mod-button">Attack</button>:</label>
-                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+                <label for="single-input"><button class="mod-button">Wis</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="single-input"><button class="mod-button">Attack</button>:</label>
-                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+                <label for="single-input"><button class="mod-button">Prof</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="single-input"><button class="mod-button">Con</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="single-input"><button class="mod-button">Cha</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="single-input"><button class="mod-button">Exp</button>:</label>
+                <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
             </div>
         </main>
     </body>
