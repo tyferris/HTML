@@ -209,36 +209,36 @@
         <div class="text-box-box">
             <p>How Many?</p>
             <div class="text-label">
-                <label for="single-input">d4:</label>
-                <input type="text" id="single-input" name="# of d4's" placeholder="# of dice">
+                <label for="d4">d4:</label>
+                <input type="text" id="d4" name="# of d4's" placeholder="# of dice">
             </div>
             <div class="text-label">
-                <label for="single-input">d6:</label>
-                <input type="text" id="single-input" name="# of d6's" placeholder="# of dice">
+                <label for="d6">d6:</label>
+                <input type="text" id="d6" name="# of d6's" placeholder="# of dice">
             </div>
             <div class="text-label">
-                <label for="single-input">d8:</label>
-                <input type="text" id="single-input" name="# of d8's" placeholder="# of dice">
+                <label for="d8">d8:</label>
+                <input type="text" id="d8" name="# of d8's" placeholder="# of dice">
             </div>
             <div class="text-label">
-                <label for="single-input">d10:</label>
-                <input type="text" id="single-input" name="# of d10's" placeholder="# of dice">
+                <label for="d10">d10:</label>
+                <input type="text" id="d10" name="# of d10's" placeholder="# of dice">
             </div>
             <div class="text-label">
-                <label for="single-input">d12:</label>
-                <input type="text" id="single-input" name="# of d12's" placeholder="# of dice">
+                <label for="d12">d12:</label>
+                <input type="text" id="sd12" name="# of d12's" placeholder="# of dice">
             </div>
             <div class="text-label">
-                <label for="single-input">d20:</label>
-                <input type="text" id="single-input" name="# of d20's" placeholder="# of dice">
+                <label for="d20">d20:</label>
+                <input type="text" id="d20" name="# of d20's" placeholder="# of dice">
             </div>
             <div class="text-label">
-                <label for="single-input">d100:</label>
-                <input type="text" id="single-input" name="# of d100's" placeholder="# of dice">
+                <label for="d100">d100:</label>
+                <input type="text" id="d100" name="# of d100's" placeholder="# of dice">
             </div>
             <div class="text-label">
-                <label for="single-input">Coin Flip:</label>
-                <input type="text" id="single-input" name="# of coin flips" placeholder="# of dice">
+                <label for="d100">Coin Flip:</label>
+                <input type="text" id="d100" name="# of coin flips" placeholder="# of dice">
             </div>
             <button class="roll-button">Roll!</button>
         </div>
@@ -247,7 +247,20 @@
             <div class="die">
                 <p>1</p>
             </div>
-            
+        </div>
+
+        <div class="results-box">
+            <h2>Raw Total</h2>
+            <div class="result">
+                <p>0</p>
+            </div>
+        </div>
+
+        <div class="final-result-box">
+            <h2>Final Total</h2>
+            <div class="result">
+                <p>0</p>
+            </div>
         </div>
 
         <div class="modifier-box">
@@ -288,10 +301,11 @@
                 <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="single-input"><button class="mod-button">Exp</button>:</label>
-                <input type="text" id="single-input" name="# of d4's" placeholder="modifier">
+                <label for="CoinFlip"><button class="mod-button">Exp</button>:</label>
+                <input type="text" id="CoinFlip" name="# of d4's" placeholder="modifier">
             </div>
         </main>
-        <script src="learning.js"></script>
+        
     </body>
+    <script src="learning.js"></script>
 </html>
