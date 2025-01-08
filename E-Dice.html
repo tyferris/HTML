@@ -200,6 +200,10 @@
             background-color: lightskyblue;
             transform: scale(1.1);
         }
+        .mod-button.active {
+            background-color: lightblue;
+        }
+
     </style>
 <body>
     <header>
@@ -267,54 +271,81 @@
                 <input type="text" id="Atk" name="Atk" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="Str"><button class="mod-button">Str</button>:</label>
+                <label for="Str"><button class="mod-button" data-modifier="Str">Str</button>:</label>
                 <input type="text" id="Str" name="Str" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="Int"><button class="mod-button">Int</button>:</label>
-                <input type="text" id="int" name="Int" placeholder="modifier">
+                <label for="Int"><button class="mod-button" data-modifier="Int">Int</button>:</label>
+                <input type="text" id="Int" name="Int" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="Save"><button class="mod-button">Save</button>:</label>
+                <label for="Save"><button class="mod-button" data-modifier="Save">Save</button>:</label>
                 <input type="text" id="Save" name="Save" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="Dex"><button class="mod-button">Dex</button>:</label>
+                <label for="Dex"><button class="mod-button" data-modifier="Dex">Dex</button>:</label>
                 <input type="text" id="Dex" name="Dex" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="Wis"><button class="mod-button">Wis</button>:</label>
+                <label for="Wis"><button class="mod-button" data-modifier="Wis">Wis</button>:</label>
                 <input type="text" id="Wis" name="Wis" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="Prof"><button class="mod-button">Prof</button>:</label>
+                <label for="Prof"><button class="mod-button" data-modifier="Prof">Prof</button>:</label>
                 <input type="text" id="Prof" name="Prof" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="Con"><button class="mod-button">Con</button>:</label>
+                <label for="Con"><button class="mod-button" data-modifier="Con">Con</button>:</label>
                 <input type="text" id="Con" name="Con" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="Cha"><button class="mod-button">Cha</button>:</label>
+                <label for="Cha"><button class="mod-button" data-modifier="Cha">Cha</button>:</label>
                 <input type="text" id="Cha" name="Cha" placeholder="modifier">
             </div>
             <div class="mod-text-label">
-                <label for="Exp"><button class="mod-button">Exp</button>:</label>
+                <label for="Exp"><button class="mod-button" data-modifier="Exp">Exp</button>:</label>
                 <input type="text" id="Exp" name="Exp" placeholder="modifier">
             </div>
         </main>
         
     </body>
     <script>
+    
+
     document.addEventListener('DOMContentLoaded', function () {
+        let finalTotal = 0;
+        let diceResults = [];
+        let total = 0;
+        let modTotal = 0;
 
         function roll(sides) {
             return Math.floor(Math.random() * sides) + 1;
 }
+        function updateFinalTotal() {
+            const finalTotal = total + modTotal;
+            document.querySelector('.final-result-box .result p').textContent = finalTotal;
+        }
+
+        function toggleButton(button) {
+
+            const modifierName = button.dataset.modifier;
+            const modifierInput = document.getElementById(modifierName);
+            const modifierValue = parseInt(modifierInput.value) || 0;
+
+            if (button.classList.contains('active')) {
+                button.classList.remove('active');
+                button.classList.add('inactive');
+                modTotal -= modifierValue;
+            } else {
+                button.classList.remove('inactive');
+                button.classList.add('active');
+                modTotal += modifierValue;
+            }
+            updateFinalTotal();
+        }
 
         function rollDice() {
-    console.log(document.getElementById("d4"));
-
+            total = 0;
     let numD4 = parseInt(document.getElementById("d4").value) || 0;
     let numD6 = parseInt(document.getElementById("d6").value) || 0;
     let numD8 = parseInt(document.getElementById("d8").value) || 0;
@@ -324,12 +355,8 @@
     let numD100 = parseInt(document.getElementById("d100").value) || 0;
     let numCoinFlip = parseInt(document.getElementById("CoinFlip").value) || 0;
 
-
     const diceBox = document.querySelector(".dice-box");
     diceBox.innerHTML = '';
-
-    let total = 0;
-    let diceResults = [];
 
     for (let i = 0; i < numD4; i++) {
         if (numD4 > 0) {
@@ -395,28 +422,28 @@
             diceBox.innerHTML += `<div class="die"><p>${result}/2</p></div>`;
         }
     }
+    finalTotal = total;
     console.log(diceResults);
 
     document.querySelector('.results-box .result p').textContent = total;
-    let finalTotal = total;
     document.querySelector('.final-result-box .result p').textContent = finalTotal;
+
+    modButtons.forEach(button => {
+        if (button.classList.contains('active')) {
+            toggleButton(button);
+        }
+    });
 }
 
-function applyModifier(modifierName) {
-    let modifierValue = parseInt(document.querySelector(`input[name="${modifierName}"]`).value) || 0;
-    let currentFinalTotal = parseInt(document.querySelector('.final-result-box .result p').textContent);
-    currentFinalTotal += modifierValue;
-    document.querySelector('.final-result-box .result p').textContent = currentFinalTotal;
-}
+    document.querySelector('.roll-button').addEventListener('click', rollDice);
 
-document.querySelector('.roll-button').addEventListener('click', rollDice);
-
-document.querySelectorAll('.mod-button').forEach(button => {
-    button.addEventListener('click', () => {
-        const modifierName = button.textContent.trim();
-        applyModifier(modifierName);
+    const modButtons = document.querySelectorAll('.mod-button');
+    modButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            toggleButton(button);
+        });
+        
     });
-    });
-    });
+});
     </script>
 </html>
