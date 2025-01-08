@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Dice</title>
+</head>
+<style>
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Roboto', sans-serif; /* Improved font styling */
+        }
+        main {
+            position: absolute;
+            width: 98%;
+            top: 80px;
+            height: calc(100vh - 80px);
+            overflow: hidden;
+        }
+        header {    
+            font-size: 1.5em;
+            height: 60px;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: blue;
+    }
+        input[type="text"] {
+            width: 50%;
+            padding: 5px;
+        }
+        .text-box-box {
+            display: flex;
+            position: absolute;
+            height: 100%;
+            width: 20%;
+            align-items: center;
+            flex-direction: column;
+            padding: 5px;
+            border: 1px solid black;
+        }
+        .text-box-box p {
+            font-weight: bold;
+            line-height: 0px;
+        }
+        .text-label {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            
+            height: 50px;
+            width: 100%;
+        }
+        
+        .roll-button {
+            width: 100%;
+            height: 50px;
+            padding: 5px;
+            margin-top: 10px;
+            border-radius: 10px;
+            font-size: 2em;
+            font-weight: bold;
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .roll-button:hover {
+            background-color: darkblue;
+            transform: scale(1.1);
+        }
+        .dice-box {
+            display: flex;
+            position: absolute;
+            border: 2px solid black;
+            margin-left: calc(20% + 11px);
+            height: 60%;
+            width: calc(60% - 35px);
+            top: 0;
+            overflow: hidden;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-content: flex-start;
+            padding: 5px;
+            justify-content: center;
+        }
+        .die {
+            display: flex;
+            width: 60px;
+            height: 60px;
+            border: 1px solid red;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .die-pic {
+            width: 60px;
+            height: 60px;
+            z-index: 1;
+            position: relative;
+            object-fit: cover;
+        }
+        .die p {
+            z-index: 100;
+            position: relative;
+            color: blue;
+            font-weight: bold;
+            font-size: 1.75em;
+        }
+        .results-box {
+            display: flex;
+            position: absolute;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(50% - 10px);
+            width: 20%;
+            padding: 5px;
+           
+            top: 0;
+            right: 0;
+        }
+        .results-box h2 {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: black;
+            text-decoration: underline;
+        }
+        .final-result-box h2 {
+            font-weight: bold;
+            font-size: 1.5em;
+            color: black;
+            text-decoration: underline;
+        }
+        .result {
+            font-size: 1.25em;
+            color: blue;
+            font-weight: bold;
+            border: 1px solid black;
+            width: 75%;
+            text-align: center;
+        }
+        .result p {
+            font-size: 1.5em;
+        }
+        .final-result-box {
+            display: flex;
+            position: absolute;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: calc(50% - 10px);
+            width: 20%;
+            padding: 5px;
+          
+            top: 50%;
+            right: 0;
+        }
+
+        .modifier-box {
+            display: flex;
+            position: absolute;
+            flex-direction: row;
+            border: 1px solid green;
+            height: calc(40% - 30px);
+            width: calc(60% - 35px);
+            padding: 5px;
+            bottom: 0;
+            margin-left: calc(20% + 11px);
+            align-content: flex-start;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+        .mod-button {
+            width: 100%;
+            height: auto;
+            padding: 5px;
+            margin-top: 40%;           
+            font-weight: bold;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 20%;
+            
+        }
+        .mod-text-label {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-inline: 7px;
+            height: 40px;
+            width: calc(33% - 15px);
+            border: 1px solid black;
+            gap: 5px;
+        }
+        .mod-button:hover {
+            background-color: lightskyblue;
+            transform: scale(1.1);
+        }
+    </style>
+<body>
+    <header>
+        <h1>E-Dice</h1>
+    </header>
+    <main>
+        <div class="text-box-box">
+            <p>How Many?</p>
+            <div class="text-label">
+                <label for="d4">d4:</label>
+                <input type="text" id="d4" name="d4" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="d6">d6:</label>
+                <input type="text" id="d6" name="d6" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="d8">d8:</label>
+                <input type="text" id="d8" name="d8" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="d10">d10:</label>
+                <input type="text" id="d10" name="d10" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="d12">d12:</label>
+                <input type="text" id="d12" name="d12" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="d20">d20:</label>
+                <input type="text" id="d20" name="d20" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="d100">d100:</label>
+                <input type="text" id="d100" name="d100" placeholder="# of dice">
+            </div>
+            <div class="text-label">
+                <label for="CoinFlip">Coin Flip:</label>
+                <input type="text" id="CoinFlip" name="CoinFlip" placeholder="# of dice">
+            </div>
+            <button class="roll-button">Roll!</button>
+        </div>
+
+        <div class="dice-box">
+            <!-- Dice will be added here -->
+        </div>
+
+        <div class="results-box">
+            <h2>Raw Total</h2>
+            <div class="result">
+                <p>0</p>
+            </div>
+        </div>
+
+        <div class="final-result-box">
+            <h2>Final Total</h2>
+            <div class="result">
+                <p>0</p>
+            </div>
+        </div>
+
+        <div class="modifier-box">
+            <div class="mod-text-label">
+                <label for="Atk"><button class="mod-button" data-modifier="Atk">Atk</button>:</label>
+                <input type="text" id="Atk" name="Atk" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="Str"><button class="mod-button">Str</button>:</label>
+                <input type="text" id="Str" name="Str" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="Int"><button class="mod-button">Int</button>:</label>
+                <input type="text" id="int" name="Int" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="Save"><button class="mod-button">Save</button>:</label>
+                <input type="text" id="Save" name="Save" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="Dex"><button class="mod-button">Dex</button>:</label>
+                <input type="text" id="Dex" name="Dex" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="Wis"><button class="mod-button">Wis</button>:</label>
+                <input type="text" id="Wis" name="Wis" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="Prof"><button class="mod-button">Prof</button>:</label>
+                <input type="text" id="Prof" name="Prof" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="Con"><button class="mod-button">Con</button>:</label>
+                <input type="text" id="Con" name="Con" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="Cha"><button class="mod-button">Cha</button>:</label>
+                <input type="text" id="Cha" name="Cha" placeholder="modifier">
+            </div>
+            <div class="mod-text-label">
+                <label for="Exp"><button class="mod-button">Exp</button>:</label>
+                <input type="text" id="Exp" name="Exp" placeholder="modifier">
+            </div>
+        </main>
+        
+    </body>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        function roll(sides) {
+            return Math.floor(Math.random() * sides) + 1;
+}
+
+        function rollDice() {
+    console.log(document.getElementById("d4"));
+
+    let numD4 = parseInt(document.getElementById("d4").value) || 0;
+    let numD6 = parseInt(document.getElementById("d6").value) || 0;
+    let numD8 = parseInt(document.getElementById("d8").value) || 0;
+    let numD10 = parseInt(document.getElementById("d10").value) || 0;
+    let numD12 = parseInt(document.getElementById("d12").value) || 0;
+    let numD20 = parseInt(document.getElementById("d20").value) || 0;
+    let numD100 = parseInt(document.getElementById("d100").value) || 0;
+    let numCoinFlip = parseInt(document.getElementById("CoinFlip").value) || 0;
+
+
+    const diceBox = document.querySelector(".dice-box");
+    diceBox.innerHTML = '';
+
+    let total = 0;
+    let diceResults = [];
+
+    for (let i = 0; i < numD4; i++) {
+        if (numD4 > 0) {
+            let result = roll(4);
+            diceResults.push(result);
+            total += result;
+            diceBox.innerHTML += `<div class="die"><p>${result}/4</p></div>`;
+        }
+    }
+    for (let i = 0; i < numD6; i++) {
+        if (numD6 > 0) {
+            let result = roll(6);
+            diceResults.push(result);
+            total += result;
+            diceBox.innerHTML += `<div class="die"><p>${result}/6</p></div>`;
+        }
+    }
+    for (let i = 0; i < numD8; i++) {
+        if (numD8 > 0) {
+            let result = roll(8);
+            diceResults.push(result);
+            total += result;
+            diceBox.innerHTML += `<div class="die"><p>${result}/8</p></div>`;
+        }
+    }
+    for (let i = 0; i < numD10; i++) {
+        if (numD10 > 0) {
+            let result = roll(10);
+            diceResults.push(result);
+            total += result;
+            diceBox.innerHTML += `<div class="die"><p>${result}/10</p></div>`;
+        }
+    }
+    for (let i = 0; i < numD12; i++) {
+        if (numD12 > 0) {
+            let result = roll(12);
+            diceResults.push(result);
+            total += result;
+            diceBox.innerHTML += `<div class="die"><p>${result}/12</p></div>`;
+        }
+    }
+    for (let i = 0; i < numD20; i++) {
+        if (numD20 > 0) {
+            let result = roll(20);
+            diceResults.push(result);
+            total += result;
+            diceBox.innerHTML += `<div class="die"><p>${result}/20</p></div>`;
+        }
+    }
+    for (let i = 0; i < numD100; i++) {
+        if (numD100 > 0) {
+            let result = roll(100);
+            diceResults.push(result);
+            total += result;
+            diceBox.innerHTML += `<div class="die"><p>${result}/100</p></div>`;
+        }
+    }
+    for (let i = 0; i < numCoinFlip; i++) {
+        if (numCoinFlip > 0) {
+            let result = roll(2);
+            diceResults.push(result);
+            total += result;
+            diceBox.innerHTML += `<div class="die"><p>${result}/2</p></div>`;
+        }
+    }
+    console.log(diceResults);
+
+    document.querySelector('.results-box .result p').textContent = total;
+    let finalTotal = total;
+    document.querySelector('.final-result-box .result p').textContent = finalTotal;
+}
+
+function applyModifier(modifierName) {
+    let modifierValue = parseInt(document.querySelector(`input[name="${modifierName}"]`).value) || 0;
+    let currentFinalTotal = parseInt(document.querySelector('.final-result-box .result p').textContent);
+    currentFinalTotal += modifierValue;
+    document.querySelector('.final-result-box .result p').textContent = currentFinalTotal;
+}
+
+document.querySelector('.roll-button').addEventListener('click', rollDice);
+
+document.querySelectorAll('.mod-button').forEach(button => {
+    button.addEventListener('click', () => {
+        const modifierName = button.textContent.trim();
+        applyModifier(modifierName);
+    });
+    });
+    });
+    </script>
+</html>
