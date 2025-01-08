@@ -210,31 +210,31 @@
             <p>How Many?</p>
             <div class="text-label">
                 <label for="d4">d4:</label>
-                <input type="text" id="d4" name="# of d4's" placeholder="# of dice">
+                <input type="text" id="d4" name="d4" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="d6">d6:</label>
-                <input type="text" id="d6" name="# of d6's" placeholder="# of dice">
+                <input type="text" id="d6" name="d6" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="d8">d8:</label>
-                <input type="text" id="d8" name="# of d8's" placeholder="# of dice">
+                <input type="text" id="d8" name="d8" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="d10">d10:</label>
-                <input type="text" id="d10" name="# of d10's" placeholder="# of dice">
+                <input type="text" id="d10" name="d10" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="d12">d12:</label>
-                <input type="text" id="sd12" name="# of d12's" placeholder="# of dice">
+                <input type="text" id="d12" name="d12" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="d20">d20:</label>
-                <input type="text" id="d20" name="# of d20's" placeholder="# of dice">
+                <input type="text" id="d20" name="d20" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="d100">d100:</label>
-                <input type="text" id="d100" name="# of d100's" placeholder="# of dice">
+                <input type="text" id="d100" name="d100" placeholder="# of dice">
             </div>
             <div class="text-label">
                 <label for="CoinFlip">Coin Flip:</label>
@@ -244,9 +244,7 @@
         </div>
 
         <div class="dice-box">
-            <div class="die">
-                <p>1</p>
-            </div>
+            <!-- Dice will be added here -->
         </div>
 
         <div class="results-box">
@@ -308,11 +306,15 @@
         
     </body>
     <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
         function roll(sides) {
-  return Math.floor(Math.random() * sides) + 1;
+            return Math.floor(Math.random() * sides) + 1;
 }
 
-function rollDice() {
+        function rollDice() {
+    console.log(document.getElementById("d4"));
+
     let numD4 = parseInt(document.getElementById("d4").value) || 0;
     let numD6 = parseInt(document.getElementById("d6").value) || 0;
     let numD8 = parseInt(document.getElementById("d8").value) || 0;
@@ -393,6 +395,7 @@ function rollDice() {
             diceBox.innerHTML += `<div class="die"><p>${result}/2</p></div>`;
         }
     }
+    console.log(diceResults);
 
     document.querySelector('.results-box .result p').textContent = total;
     let finalTotal = total;
@@ -413,6 +416,7 @@ document.querySelectorAll('.mod-button').forEach(button => {
         const modifierName = button.textContent.trim();
         applyModifier(modifierName);
     });
-});
+    });
+    });
     </script>
 </html>
