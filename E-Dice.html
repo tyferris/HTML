@@ -10,6 +10,10 @@
             scroll-behavior: smooth;
             font-family: 'Roboto', sans-serif; /* Improved font styling */
         }
+        body {
+            background-color: rgb(75, 0, 0);
+            overflow: hidden;
+        }
         main {
             position: absolute;
             width: 98%;
@@ -18,17 +22,21 @@
             overflow: hidden;
         }
         header {    
+            font-family: Cyberpunk;
             font-size: 1.5em;
             height: 60px;
             padding: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: blue;
+            color: yellow;
     }
         input[type="text"] {
             width: 50%;
             padding: 5px;
+            background-color: black;
+            color: red;
+            border: 2px solid red;
         }
         .text-box-box {
             display: flex;
@@ -38,13 +46,14 @@
             align-items: center;
             flex-direction: column;
             padding: 5px;
-            border: 1px solid black;
+            
             word-wrap: break-word;
             overflow-wrap: break-word;
         }
         .text-box-box p {
             font-weight: bold;
             line-height: 0px;
+            color: cyan;
         }
         @media screen and (max-width: 480px) {
     .text-box-box p {
@@ -55,7 +64,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            
+            color: red;
             height: 50px;
             width: 100%;
         }
@@ -66,21 +75,22 @@
             padding: 5px;
             margin-top: 10px;
             border-radius: 10px;
+            border: 2px solid red;
             font-size: 2em;
             font-weight: bold;
-            background-color: blue;
-            color: white;
+            background-color: black;
+            color: cyan;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .roll-button:hover {
-            background-color: darkblue;
+            background-color: red;
             transform: scale(1.1);
         }
         .dice-box {
             display: flex;
             position: absolute;
-            border: 2px solid black;
+            border: 2px solid red;
             margin-left: calc(20% + 11px);
             height: 60%;
             width: calc(60% - 35px);
@@ -96,7 +106,6 @@
             display: flex;
             width: 60px;
             height: 60px;
-            border: 1px solid red;
             text-align: center;
             align-items: center;
             justify-content: center;
@@ -112,7 +121,7 @@
         .die p {
             z-index: 100;
             position: relative;
-            color: blue;
+            color: cyan;
             font-weight: bold;
             font-size: 1.75em;
         }
@@ -132,24 +141,26 @@
         .results-box h2 {
             font-weight: bold;
             font-size: 1.5em;
-            color: black;
+            color: cyan;
             text-decoration: underline;
         }
         .final-result-box h2 {
             font-weight: bold;
             font-size: 1.5em;
-            color: black;
+            color: cyan;
             text-decoration: underline;
         }
         .result {
             font-size: 1.25em;
-            color: blue;
+            color: lightblue;
             font-weight: bold;
-            border: 1px solid black;
+            border: 1px solid red;
             width: 75%;
             text-align: center;
         }
         .result p {
+            font-weight: bold;
+            color: cyan;
             font-size: 1.5em;
         }
         .final-result-box {
@@ -161,16 +172,13 @@
             height: calc(50% - 10px);
             width: 20%;
             padding: 5px;
-          
             top: 50%;
             right: 0;
         }
-
         .modifier-box {
             display: flex;
             position: absolute;
             flex-direction: row;
-            border: 1px solid green;
             height: calc(40% - 30px);
             width: calc(60% - 35px);
             padding: 5px;
@@ -186,8 +194,8 @@
             padding: 5px;
             margin-top: 40%;           
             font-weight: bold;
-            background-color: white;
-            color: black;
+            background-color: black;
+            color: cyan;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
             border-radius: 20%;
@@ -200,7 +208,7 @@
             margin-inline: 1px;
             height: 40px;
             width: calc(33% - 3px);
-            border: 1px solid black;
+            
             
         }
         .mod-button:hover {
