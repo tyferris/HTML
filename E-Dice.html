@@ -39,11 +39,18 @@
             flex-direction: column;
             padding: 5px;
             border: 1px solid black;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         .text-box-box p {
             font-weight: bold;
             line-height: 0px;
         }
+        @media screen and (max-width: 480px) {
+    .text-box-box p {
+        font-size: 0.9em; /* Further reduce font size on very small screens */
+    }
+}
         .text-label {
             display: flex;
             flex-direction: row;
@@ -190,11 +197,11 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            margin-inline: 7px;
+            margin-inline: 1px;
             height: 40px;
-            width: calc(33% - 15px);
+            width: calc(33% - 3px);
             border: 1px solid black;
-            gap: 5px;
+            
         }
         .mod-button:hover {
             background-color: lightskyblue;
